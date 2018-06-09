@@ -11,7 +11,7 @@ License:	MIT
 Source0:	https://rubygems.org/downloads/%{pkgname}-%{version}.gem
 # Source0-md5:	80b8b69edb211e97e30dc7334e37a593
 Group:		Development/Languages
-URL:		http://rubyforge.org/projects/.../
+URL:		https://github.com/JoshCheek/thread_order
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
 BuildArch:	noarch
