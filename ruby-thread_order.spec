@@ -1,9 +1,10 @@
 #
 # Conditional build:
-%bcond_without	doc			# don't build ri/rdoc
+%bcond_without	doc	# ri/rdoc documentation
 
 %define pkgname thread_order
 Summary:	Test helper for ordering threaded code
+Summary(pl.UTF-8):	Funkcje pomocnicze dla testów do ustalania porządku kodu w wątkach
 Name:		ruby-%{pkgname}
 Version:	1.1.0
 Release:	1
@@ -20,6 +21,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Test helper for ordering threaded code (does not depend on gems
 or stdlib, tested on 1.8.7 - 2.2, rbx, jruby).
+
+%description -l pl.UTF-8
+Funkcje pomocnicze dla testów do ustalania porządku kodu w wątkach
+(niezależnie od gemów ani biblioteki standardowej, przetestowany na
+implementacjach 1.8.7 - 2.2, rbx, jruby).
 
 %package rdoc
 Summary:	HTML documentation for Ruby %{pkgname} module
@@ -60,11 +66,12 @@ end'
 
 #'
 
+%if %{with doc}
 rdoc --ri --op ri lib
 rdoc --op rdoc lib
-# rm -r ri/NOT_THIS_MODULE_RELATED_DIRS
-rm ri/created.rid
-rm ri/cache.ri
+%{__rm} ri/created.rid
+%{__rm} ri/cache.ri
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -83,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Readme.md
+%doc License.txt Readme.md
 %{ruby_vendorlibdir}/%{pkgname}.rb
 %{ruby_vendorlibdir}/%{pkgname}
 %{ruby_specdir}/%{pkgname}-%{version}.gemspec
