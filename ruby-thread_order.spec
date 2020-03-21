@@ -7,7 +7,7 @@ Summary:	Test helper for ordering threaded code
 Summary(pl.UTF-8):	Funkcje pomocnicze dla testów do ustalania porządku kodu w wątkach
 Name:		ruby-%{pkgname}
 Version:	1.1.0
-Release:	1
+Release:	2
 License:	MIT
 Source0:	https://rubygems.org/downloads/%{pkgname}-%{version}.gem
 # Source0-md5:	80b8b69edb211e97e30dc7334e37a593
